@@ -8,7 +8,7 @@
     <title>@yield('meta-title','Laravel Media Manager')</title>
     <!-- Favicon-->
     <link rel="icon" href="{!! asset('favicon.ico') !!}" type="image/x-icon">
-    <link href="{!! asset('assets/css/laravel.popup.media.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset(mix('assets/css/laravel.popup.media.min.css')) !!}" rel="stylesheet">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript">
@@ -37,7 +37,7 @@
   </div>
 </div>
 
-<script type="text/javascript" src="{!!asset('assets/js/laravel.popup.media.min.js') !!}"></script>
+<script type="text/javascript" src="{!!asset(mix('assets/js/laravel.popup.media.min.js')) !!}"></script>
 
 <script type="text/javascript">
 
