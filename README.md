@@ -39,7 +39,7 @@ FILESYSTEM_DRIVER=public
     'visibility' => 'public',
 ],
 ```
-## Execute the below-mentioned command to creat the storage link
+## Execute the below-mentioned command to create the storage link
 ```
 php artisan storage:link
 ```
