@@ -1,4 +1,4 @@
-## How to install and configure the package
+# How to install and configure the package
 composer require hitesh399/laravel-media
 
 ## Add the provides into the config/app.php file
