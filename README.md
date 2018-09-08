@@ -91,8 +91,10 @@ Route::get('files-list','FileController@getList');
 Route::post('test-media-form','FileController@test')->name('laravel.media_test');
  ```
 ## Add below-listed line in html file to quick build the form
+```
  {!!Form::open(array('route' => 'laravel.media_test')) !!}
     {!!Form::text('username')!!}
     {!!Form::laravelMedia('image')!!}
     {!!Form::submit('Click Me!')!!}
 {!!Form::close()!!}
+```
