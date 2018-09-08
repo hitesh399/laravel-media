@@ -98,3 +98,39 @@ Route::post('test-media-form','FileController@test')->name('laravel.media_test')
     {!!Form::submit('Click Me!')!!}
 {!!Form::close()!!}
 ```
+# How to use the media pop the and override the features
+
+## You just need to use the function Form::laravelMedia($name, $label, $data, $listmaker, $htmlrender, $options)
+```
+$name [string] -> pass name of element
+$label [string] -> pass the lebel of element
+$listmaker[string] -> javascript function, to modify the slected file html, the callback function should be define in javascript with four arguments Like: 
+function listmaker(hiddenFields, file, index, elementName) => HTML
+	hiddenFields [html] -> contains the html of file hidden fields,
+	file [Object] -> Object of selected file
+	index [integer] -> index of selected file
+	elemengtName [string] -> media field name
+Note: in this function you have to renturn the HTMl
+$htmlrender [string] -> javascript function, To render the prepare the html by listmaker function, function have the 3 arguments Like:
+function htmlrender (html, inputName, element )
+	html [HTML] -> prepare html by listmaker function
+	inputName [String] -> media field name
+	element [Object] instance of the media button which use to open the media popup.
+$options [Array] => [
+	tag [string] -> should be html tag like: button, a, span, and more
+	tag_class [String] -> define the class name of media button
+	thumb [Array] => [
+		[
+			h [String] -> define the height of thumbnail
+			w [String] -> define the width of thumbnail
+			title [String] ->define the title of thumbnail
+		]
+	]
+	title [String] -> Title to diplay on the media popup
+	selected_btn_text [String]  -> Selected button text 
+	close_btn_text [String] -> Close button text
+	maxFiles [integer] -> Max number of file.
+	maxFilesize [integer] -> Max size of file in bytes 
+	acceptedFiles [String] -> Accepted file type like: image/*,/png, application/*, .gif
+	
+]
