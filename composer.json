@@ -1,0 +1,30 @@
+{
+    "name": "hitesh399/laravel-media",
+    "description": "Laravel Media Popup to upload/view the files",
+    "keywords": ["laravel upload", "laravel media", "file uploader"],
+    "authors": [
+        {
+            "name": "Hitesh Kumar",
+            "email": "hitesh.kumar399@gmail.com"
+        }
+    ],
+    "require": {
+    	"laravel/framework": "5.6.*",
+    	"laravelcollective/html": "^5.6",
+    },
+    "autoload": {
+    
+	    "psr-0": {
+	      "Hitesh399\\LaravelMedia\\": "src/"
+	    }
+  	},
+  	"extra": {
+        "laravel": {
+            "providers": [
+                "Hitesh399\\LaravelMedia\\LaravelMediaServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev",
+}
