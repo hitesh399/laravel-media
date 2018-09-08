@@ -98,9 +98,9 @@ Route::post('test-media-form','FileController@test')->name('laravel.media_test')
     {!!Form::submit('Click Me!')!!}
 {!!Form::close()!!}
 ```
-# How to use the media pop the and override the features
+# How to use the media pop and also override the features
 
-## You just need to use the function Form::laravelMedia($name, $label, $data, $listmaker, $htmlrender, $options)
+## Use the function Form::laravelMedia($name, $label, $data, $listmaker, $htmlrender, $options)
 ```
 $name [string] -> pass name of element
 $label [string] -> pass the lebel of element
