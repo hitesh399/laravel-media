@@ -4,10 +4,11 @@ function fileManager(inputName){
 	this.inputName = inputName;
 	this.LaravelMedia = window.parent.$.LaravelMedia;
 	var requestData =  window.parent.$.LaravelMedia.elms[inputName] ? window.parent.$.LaravelMedia.elms[inputName] : {};
+	var replace_on_change = requestData.replace_on_change === undefined ? false : requestData.replace_on_change;
 
 	this.thumb = (typeof requestData.thumb != "undefined" && requestData.thumb.length)?requestData.thumb:[];
 	this.noOfSelected = requestData.no_of_selected ? requestData.no_of_selected  : 0;
-	this.maxFiles = (this.thumb.length >=1 )? 1 : (requestData.maxFiles ? (requestData.maxFiles - this.noOfSelected) : null);
+	this.maxFiles = (this.thumb.length >=1 )? 1 : (requestData.maxFiles && replace_on_change === false ? (requestData.maxFiles - this.noOfSelected) : null);
 	this.maxFilesize = typeof requestData.maxFilesize != "undefined"?requestData.maxFilesize:null;
 	this.requestData = requestData;
 	this.acceptedFiles = this.thumb.length >=1 ?'image/*':(requestData.acceptedFiles != "undefined"?requestData.acceptedFiles:null);

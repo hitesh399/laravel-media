@@ -91,10 +91,12 @@ function laravelGallery (inputName){
 		var files = [];
 		var gallery = this.LaravelMedia.gallery;
 
+		//var replace_on_change = this.LaravelMedia[this.inputName].replace_on_change === undefined ? false : this.LaravelMedia[this.inputName].replace_on_change;
+
 		$('#gallery-container .gallery-item.selected').each(function (index) {
 			var page = $( this ).attr('data-page');
 			var index = $( this ).attr('data-index');
-			files.push(gallery[page].data[index]);
+			files.push(gallery[page].data[index]);	
 		});
 		window.parent.$.LaravelMedia.closedModal(files, {name: this.inputName});
 	}
@@ -184,7 +186,7 @@ function laravelGallery (inputName){
 					success: function (res) {
 
 						$('#galery-load-more-action').prop('disabled', false);
-						var page = res.current_page === 1 ? 0 : res.current_page;
+						var page = res.current_page-1;
 
 						_this.render(res.data, page);
 						
@@ -241,8 +243,11 @@ $('body').on('click','.gallery-item', function (e){
 		var index = _elm.attr('data-index');
 
 		var file = LaravelMedia.gallery[page].data[index];
-		// console.log('acceptedFiles');
-		// console.log(acceptedFiles);
+
+		var replace_on_change = LaravelMedia.elms[inputName].replace_on_change === undefined ? false : LaravelMedia.elms[inputName].replace_on_change;
+
+		console.log('acceptedFiles');
+		console.log(replace_on_change);
 
 		if(acceptedFiles && acceptedFiles.length > 0) {
 			acceptedFiles.map(function (file_type) {
@@ -327,9 +332,16 @@ $('body').on('click','.gallery-item', function (e){
 		// Has selected files
 		var has_selected = $('#gallery-container .gallery-item.selected').length;
 
-		if(can_select_file  === undefined || (has_selected < can_select_file ) ) {
+		if(!maxFiles) {
 
-			// Now You can seleted the file.
+			_elm.addClass('selected');
+		}
+		else if(maxFiles && replace_on_change === true && has_selected < maxFiles ) {
+
+			_elm.addClass('selected');
+		}
+		else if(maxFiles && replace_on_change === false && has_selected < can_select_file ){
+
 			_elm.addClass('selected');
 		}
 		else {

@@ -107,33 +107,38 @@ function filePreview(elm, inputName, _list_callback, _render_callback) {
 		data.map(function (f, index) {
 
 			var element = document.getElementById('remove-file_'+inputName+'_'+index);
-			element.setAttribute('data-index', index);
-			element.setAttribute('class', element.getAttribute('class') + ' laravel_media_remover');
-			element ? element.onclick = function(__this) {
 
-				var index = $(__this.toElement).attr('data-index');
-				if(index  === undefined) {
-					index = $(__this.toElement).closest('.laravel_media_remover').attr('data-index');
-				}
+			if(element) {
 				
-				if(! callback_delete) {
+				element.setAttribute('data-index', index);
+				element.setAttribute('class', element.getAttribute('class') + ' laravel_media_remover');
+				element.onclick = function(__this) {
 
-					if( confirm("Are you sure to delete this selected file?") ) {
-						console.log('__this');
-						console.log(__this);
-						
-						console.log(inputName);
-						console.log(index);
-						$.LaravelMedia.files[inputName].splice(index, 1);
-						_this.render();
+					var index = $(__this.toElement).attr('data-index');
+					if(index  === undefined) {
+						index = $(__this.toElement).closest('.laravel_media_remover').attr('data-index');
 					}
-				}
-				else {
+					
+					if(! callback_delete) {
 
-					callback_delete(_this, inputName,index);
-				}
+						if( confirm("Are you sure to delete this selected file?") ) {
+							console.log('__this');
+							console.log(__this);
+							
+							console.log(inputName);
+							console.log(index);
+							$.LaravelMedia.files[inputName].splice(index, 1);
+							_this.render();
+						}
+					}
+					else {
 
-			} : null;	
+						window.LaravelMedia_delete_callbacks !== undefined && typeof window.LaravelMedia_delete_callbacks[inputName] === 'function' ? window.LaravelMedia_delete_callbacks[inputName](_this, inputName,index) :callback_delete(_this, inputName,index);
+					}
+
+				}
+			}
+
 		})
 		
 	}
@@ -291,8 +296,16 @@ $.LaravelMedia = {
 				$.LaravelMedia.files[inputName]  = [];
 			}
 
+			var replace_on_change = $.LaravelMedia.elms[inputName].replace_on_change === undefined ? false : $.LaravelMedia.elms[inputName].replace_on_change;
+
 			// Add Uploaded file in List.
-			data.map(function (f) { $.LaravelMedia.files[inputName].push(f); });
+			if(!replace_on_change) {
+				data.map(function (f) { $.LaravelMedia.files[inputName].push(f); });
+			}
+			else {
+
+				$.LaravelMedia.files[inputName] = 	data;
+			}
 
 			var fp = this.elms[inputName].filePreview;
 			fp.render();
