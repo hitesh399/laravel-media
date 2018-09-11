@@ -33,7 +33,7 @@ class DragDropUpload  extends FilesUploader
 		$ext = $ext_arr[count($ext_arr)-1];
 		
 		$dest_path = $this->getDestinationPath();		
-		$file_name = $this->getFileName($dest_path, uniqid().'.'.$ext);
+		$file_name = $this->getFileName($dest_path, $file_org_name);
 		$path = Storage::putFileAs($dest_path, $file, $file_name);		
 		$basename = basename($path);
 		$image_size = getImageSize($file->getPathName());
