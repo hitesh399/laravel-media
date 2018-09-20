@@ -18,10 +18,11 @@
             'admin_url':'{!!url('/admin')!!}',
           };
     </script>
-      
+
+          
 </head>
 <body>
-<div class="container">
+<div class="container upload-files">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#uploader">Uploader</a></li>
     <li><a data-toggle="tab" href="#gallery">Gallery</a></li>

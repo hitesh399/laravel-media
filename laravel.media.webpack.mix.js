@@ -1,9 +1,9 @@
 const mix = require('laravel-mix');
 
 mix.styles([
-    'resources/assets/css/file-drag-drop.base.css',
+    'resources/assets/css/file-drag-drop.base.css',    
+    'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
     'resources/assets/css/laravel.media.custom.css',
-    'node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 ], 'public/assets/css/laravel.popup.media.min.css')
 .version()
 .copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/webfonts');

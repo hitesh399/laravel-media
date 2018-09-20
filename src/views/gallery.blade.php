@@ -1,4 +1,4 @@
-<div class="row text-center text-lg-left gallery-row" >
+<div class="upload-gallery text-center text-lg-left gallery-row" >
     
     <div class="gallery-preview">
       <div class="flex flex--around input-area">
@@ -9,7 +9,7 @@
 
         
 
-        <div class = "input-group">
+        <div class = "input-group form-group">
            <input type="text" class="form-control" placeholder='Search' name="s" id="gallery_search">
            <span class = "input-group-btn">
               <button type="button" class="btn btn-primary" id="filter_action" >
@@ -22,7 +22,7 @@
       <div class="row card-deck"  id="gallery-container">
       </div>
       <div class="row" id="load-more-container">
-          <div class="col-md-12"><button id="galery-load-more-action" class="btn btn-primary">Load More</button></div>
+          <div class="col-md-12"><button id="galery-load-more-action" class="btn animated-btn dark-blue-btn">Load More</button></div>
       </div> 
    </div>
 
@@ -35,12 +35,12 @@
       </button>
     </div> --}}
     <div class="row">
-        <div class="col-md-12 col-sm-12">
+        <div class="col-md-12 col-sm-12 text-left">
             <span class="fas fa-long-arrow-alt-left go-back" id="go_back_to_gallery"></span>
         </div>
     </div>
-    <div class="row">
-      <div class="col-md-9 col-sm-9">
+    <div class="row custom-margin">
+      <div class="col-md-9 col-sm-9 col-xs-9 custom-padding width-100">
         <!-- <h3>Demo:</h3> -->
         <div class="img-container">
           <img id="gallery-image" alt="Picture">
@@ -48,12 +48,12 @@
         <div class="docs-buttons">
         <!-- <h3>Toolbar:</h3> -->
         <div class="btn-group">
-          <button type="button" class="btn btn-primary" data-method="setDragMode" data-option="move" title="Move">
+          <button type="button" class="btn animated-btn dark-blue-btn" data-method="setDragMode" data-option="move" title="Move">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Move">
               <span class="fas fa-arrows-alt"></span>
             </span>
           </button>
-          <button type="button" class="btn btn-primary" data-method="send_crop_data" title="Crop and Save">
+          <button type="button" class="btn animated-btn dark-blue-btn" data-method="send_crop_data" title="Crop and Save">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Crop and Save">
               <span class="fa fa-crop"></span>
             </span>
@@ -61,12 +61,12 @@
         </div>
 
         <div class="btn-group">
-          <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
+          <button type="button" class="btn animated-btn dark-blue-btn" data-method="zoom" data-option="0.1" title="Zoom In">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Zoom In">
               <span class="fa fa-search-plus"></span>
             </span>
           </button>
-          <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
+          <button type="button" class="btn animated-btn dark-blue-btn" data-method="zoom" data-option="-0.1" title="Zoom Out">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="Zoom Out">
               <span class="fa fa-search-minus"></span>
             </span>
@@ -167,7 +167,7 @@
           </button> --}}
         </div>    
       </div>
-      <div class="col-md-3 col-sm-3">
+      <div class="col-md-3 col-sm-3 col-xs-3 custom-padding docs-details width-100">
         <!-- <h3>Preview:</h3> -->
         {{-- <div class="docs-preview clearfix">
           <div class="img-preview preview-lg"></div>
@@ -176,10 +176,6 @@
           <div class="img-preview preview-xs"></div>
           
         </div> --}}
-
-        <div class="other-thumb">
-        </div>
-
         <!-- <h3>Data:</h3> -->
         <div class="docs-data">
           <div class="input-group input-group-sm hide">
@@ -221,13 +217,13 @@
 
           <div class="input-group input-group-sm">
             <span class="input-group-prepend">
-              <input type="text" class="form-control" id="dataThumbWidth" style="width:52px;" value="100" placeholder="Thumb width">
+              <input type="text" class="form-control" id="dataThumbWidth" value="100" placeholder="Thumb width">
             </span>            
             <span class="input-group-append">
                 <div class = "input-group">
                    <input type="text" class="form-control" id="dataThumbHeight" value="100" placeholder="Thumb height">
                    <span class = "input-group-btn">
-                      <button class = "btn btn-default initialize-cropper" type = "button">
+                      <button class = "btn animated-btn dark-blue-btn  initialize-cropper" type = "button">
                          Go!
                       </button>
                    </span>               
@@ -267,6 +263,10 @@
             <input type="text" class="form-control" id="dataScaleY" placeholder="scaleY">
           </div>
         </div>
+
+        <div class="other-thumb">
+        </div>
+
       </div>
     </div>
  
